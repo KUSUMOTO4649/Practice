@@ -1,4 +1,4 @@
-package jp.gihyo.projava.tasklist;
+package jp.gihyo.projava.Practice;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,8 +15,8 @@ import java.util.stream.Collectors;
 public class HomeRestController {
 
     record TaskItem(String id,String task,String deadline,boolean done){}
-    private List<TaskItem> taskItems=new ArrayList<>();
-    @RequestMapping(value="/resthello")
+    private List<TaskItem > taskItems = new ArrayList<>();
+    @RequestMapping(value = "/Chello")
     String hello(){
         return """
                 hello.
@@ -30,6 +30,7 @@ public class HomeRestController {
         String id = UUID.randomUUID().toString().substring(0,8);
         TaskItem item = new TaskItem(id,task,deadline,false);
         taskItems.add(item);
+
         return"タスクを追加しました。";
     }
     @GetMapping("/restlist")
