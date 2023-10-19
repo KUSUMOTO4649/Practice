@@ -31,8 +31,32 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-thymeleaf</artifactId>
 		</dependency>
-	</dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-jdbc</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>es.urjc.etsii.grafo</groupId>
+			<artifactId>__RNAME__</artifactId>
+			<version>0.17</version>
+		</dependency>
+		<dependency>
+			<groupId>es.urjc.etsii.grafo</groupId>
+			<artifactId>__RNAME__</artifactId>
+			<version>0.17</version>
+		</dependency>
+		<dependency>
+			<groupId>es.urjc.etsii.grafo</groupId>
+			<artifactId>__RNAME__</artifactId>
+			<version>0.17</version>
+		</dependency>
+		<dependency>
+			<groupId>es.urjc.etsii.grafo</groupId>
+			<artifactId>__RNAME__</artifactId>
+			<version>0.17</version>
+		</dependency>
 
+	</dependencies>
 	<build>
 		<plugins>
 			<plugin>

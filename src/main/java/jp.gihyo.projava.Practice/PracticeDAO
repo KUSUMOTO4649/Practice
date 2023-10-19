@@ -1,0 +1,27 @@
+package jp.gihyo.projava.Practice;
+
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
+import org.springframework.jdbc.core.namedparam.SqlParameterSource;
+import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
+import org.springframework.stereotype.Service;
+import org.springframework.jdbc.core.JdbcTemplate;
+
+import java.util.List;
+import java.util.Map;
+
+@Service
+public class PracticeDAO {
+    private final statc String TABLE_NAME = "practice";
+    private final JdbcTemplate jdbcTemplate;
+
+    @Autowired
+    PracticeDAO(JdbTemplate jdbcTemplate) {
+        this.jdbcTemplate = jdbcTemplate;
+    }
+    public void add(TaskItem taskItem){
+        SqlParameterSource param = new BeanPropertySqlParameterSourceSource(tasklist);
+        SimpleJdbcInsert insert = new SimpleInsert(jdbcTemplate)
+    }
+}

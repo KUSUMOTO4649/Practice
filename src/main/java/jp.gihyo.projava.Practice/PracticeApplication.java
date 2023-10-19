@@ -1,4 +1,4 @@
-package jp.gihyo.projava.practice;
+package jp.gihyo.projava.Practice;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
