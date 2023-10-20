@@ -14,7 +14,8 @@ import java.util.Map;
 
 @Service
 public class PracticeDAO {
-    private final static String TABLE_NAME = "tasklist";
+    private final static string TEBLE_NAME = "Practice";
+
     private final JdbcTemplate jdbcTemplate;
 
     @Autowired
@@ -22,14 +23,14 @@ public class PracticeDAO {
 
         this.jdbcTemplate = jdbcTemplate;
     }
-    public void add(TaskItem taskItem) {
-        SqlParameterSource param = new BeanPropertySqlParameterSource(taskItem);
+    public void add(HomeController.TaskItem item) {
+        SqlParameterSource param = new BeanPropertySqlParameterSource(Practice);
         SimpleJdbcInsert insert = new SimpleJdbcInsert(jdbcTemplate)
-                .withTableName("tasklist");
-        insert.execute(param);
+                .withTableName(TABLE_NAME);
+        return insert.execute(param);
     }
-    public List<TaskItem> findAll{
-        String query="SELECT*FROM tasklist";
+    public List<TaskItem> findAll(){
+        String query = "SELECT*FROM Practice";
         List<Map<String,Object>>result = this.jdbcTemplate.queryForList(query);
         List<TaskItem>taskItems =result.stream()
                 .map((Map<String,Object>row)-> new TaskItem(
