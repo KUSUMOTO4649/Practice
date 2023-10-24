@@ -6,7 +6,6 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
 import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
-import org.springframework.scheduling.config.Task;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -14,31 +13,36 @@ import java.util.Map;
 
 @Service
 public class PracticeDAO {
-    private final static string TEBLE_NAME = "Practice";
+    private final static String TABLE_NAME = "practice";
 
     private final JdbcTemplate jdbcTemplate;
 
     @Autowired
     PracticeDAO(JdbcTemplate jdbcTemplate) {
-
         this.jdbcTemplate = jdbcTemplate;
+        /**
+        @param item HomeRestController.TaskItem Item;
+        @return  追加件数
+         */
     }
-    public void add(HomeController.TaskItem item) {
-        SqlParameterSource param = new BeanPropertySqlParameterSource(Practice);
+    public int add(HomeController.TaskItem item) {
+        SqlParameterSource param = new BeanPropertySqlParameterSource(item);
         SimpleJdbcInsert insert = new SimpleJdbcInsert(jdbcTemplate)
                 .withTableName(TABLE_NAME);
         return insert.execute(param);
     }
     public List<TaskItem> findAll(){
-        String query = "SELECT*FROM Practice";
-        List<Map<String,Object>>result = this.jdbcTemplate.queryForList(query);
-        List<TaskItem>taskItems =result.stream()
-                .map((Map<String,Object>row)-> new TaskItem(
+        String query = " SELECT * FROM " + TABLE_NAME;
+
+
+        List<Map<String,Object>> result = this.jdbcTemplate.queryForList(query);
+        List<HomeController.TaskItem>list = result.stream().map(
+                (Map<String,Object>row)-> new HomeController.TaskItem(
                         row.get("id").toString(),
                         row.get("task").toString(),
                         row.get("deadline").toString(),
                         (Boolean)row.get("done")))
                 .toList();
-        return taskItems;
+        return list;
     }
 }

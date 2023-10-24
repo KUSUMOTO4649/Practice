@@ -1,4 +1,4 @@
-CREATE TABLE IF NOT NEISIS tasklist(
+CREATE TABLE IF NOT EXISTS practice(
     id VARCHAR(8) PRIMARY KEY,
     task VARCHAR(256),
     deadline VARCHAR(10),
