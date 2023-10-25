@@ -34,7 +34,6 @@ public class PracticeDAO {
     public List<TaskItem> findAll(){
         String query = " SELECT * FROM " + TABLE_NAME;
 
-
         List<Map<String,Object>> result = this.jdbcTemplate.queryForList(query);
         List<HomeController.TaskItem>list = result.stream().map(
                 (Map<String,Object>row)-> new HomeController.TaskItem(
@@ -44,5 +43,9 @@ public class PracticeDAO {
                         (Boolean)row.get("done")))
                 .toList();
         return list;
+    }
+    public int delete(String id){
+        int number = jdbcTemplate.update("DELETE FROM Practice WHERE id = ? ",id);
+                return number;
     }
 }
