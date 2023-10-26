@@ -64,5 +64,14 @@ public class HomeController {
         dao.delete(id);
         return "redirect:/list";
     }
+    @GetMapping("/updeta")
+String updateItem(@RequestParam("id")String id,
+                  @RequestParam("task")String task,
+                  @RequestParam("deadline")String deadline,
+                  @RequestParam("done")boolean done){
+        TaskItem taskItem = new TaskItem(id, task,deadline,done);
+        dao.update(taskItem);
+        return"redirect:/list";
+    }
 }
 

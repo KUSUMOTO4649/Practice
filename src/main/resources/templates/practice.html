@@ -37,11 +37,36 @@
                     <td width="100px" th:text="${text.deadline}"></td>
                     <td width="50px" th:text="${task.done}?'完了':'未完了'"></td>
                     <td width="50px">
-                    <fom action = "/delete">
+                    <form action = "/delete">
                         <button type ="submit" id ="delete_button">削除</button>
+                        <input type = "hidden" name = "id" th:value = "${task.id}"/>
+                    </form>
+                    </td>
                 </tr>
             </tbody>
         </table>
     </div>
+        <div id = "updateDialog">
+            <div class ="task_form">
+                <h2>タスクの更新</h2>
+                <form action ="/update">
+                    <input id = "update_id" name ="id" type="sidden"/>
+                    <label>タスク</label>
+                    <input id = "update_task" type ="text"/>
+                    <label>期限</label>
+                    <input id = "update_deadline" name = "deadline"type ="done">
+                    <label>状態</label>
+                    <select id = "update_status" name ="done">
+                        <option valus = "false">未完了</option>
+                        <option valie = "true">完了</option>
+                    </select>
+                    <div>
+                        <button type = "submit">更新</button>
+                        <button type = "reset" onclick = "getElementById ('updeteDialog').style.deisprey = 'none';">
+                            キャンセル</button>
+                    </div>
+                </form>
+            </div>
+        </div>
     </body>
 </html>
